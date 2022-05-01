@@ -1,0 +1,75 @@
+
++----------+-------------------+--------------------------------+
+| Client   | Renderer          | SVG Renderer                   |
+|          |                   | The SVG renderer               |
+|          |                   +--------------------------------+
+|          |                   | Canvas Renderer                |
+|          |                   | The SVG renderer               |
+|          |                   +--------------------------------+
+|          |                   | HTML Renderer                  |
+|          |                   | The HTML renderer              |
++----------+-------------------+--------------------------------+
+     |
+     v
++----------+----------------------------------------------------+
+| Frontend |                                                    +
++----------+----------------------------------------------------+
+     |
+     v
++----------+----------------------------------------------------+
+| Backend  |                                                    +
++----------+----------------------------------------------------+
+
+blockDiagram
+  direction TB
+
+  layer ClientLayer
+    name Client
+    description The client
+    direction TB
+
+    layout
+      direction LR
+      block Renderer
+        description The renderer
+        weight 30%
+      layout
+        direction TB
+        weight 70%
+        block SvgRenderer
+          name SVG Renderer
+          description The SVG renderer
+        block CanvasRenderer
+          name Canvas Renderer
+          description The canvas renderer
+        block HtmlRenderer
+          name HTML Renderer
+          description The HTML renderer
+
+  layer FrontendLayer
+    name Frontend
+    description The frontend
+
+  layer BackendLayer
+    name Backend
+    description The backend
+
+  // relations
+  ClientLayer -> FrontendLayer
+  FrontendLayer -> BackendLayer
+
+
+
+
+  vbox
+
+  hbox
+
+    block
+      weight 50
+
+    block
+      weight 20
+
+    block Client-API
+      weight 10

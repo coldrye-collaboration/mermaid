@@ -49,6 +49,14 @@ class Diagram {
     this.type = utils.detectType(txt, cnf);
     log.debug('Type ' + this.type);
     switch (this.type) {
+      case 'blockDiagram':
+      case 'block':
+        throw new Error('not implemented yet');
+        // this.parser = blockDiagramParser;
+        // this.parser.parser.yy = blockDb;
+        // this.db = blockDb;
+        // this.renderer = blockRenderer;
+        // break;
       case 'gitGraph':
         this.parser = gitGraphParser;
         this.parser.parser.yy = gitGraphAst;
